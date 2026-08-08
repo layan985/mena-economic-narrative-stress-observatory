@@ -5,12 +5,8 @@ type: dataset
 authors:
   - family-names: Oraidi
     given-names: Layan
-    orcid: "https://orcid.org/0009-0002-1946-3411"
+    orcid: "https://orcid.org/0009-0005-0202-2582"
 version: "0.2"
 date-released: "2026-08-07"
 repository-code: "https://github.com/layan985/mena-economic-narrative-stress-observatory"
 url: "https://mena-open-evidence-lab.r8ms5bfzb6.chatgpt.site/"
-identifiers:
-  - type: doi
-    value: "10.5281/zenodo.21845069"
-    description: "Reserved Zenodo DOI; verify deposit status before describing it as published."
