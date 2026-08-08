@@ -1,0 +1,19 @@
+field,type,description,allowed_or_notes
+record_id,string,Stable row identifier,Unique within release
+geography,string,Country or published subnational geography,Preserve source naming
+reference_period,string,Reference period reported by source,YYYY-MM or source-specific period
+measure_type,string,Comparability class,monthly_annual_rate|regional_monthly_annual_rate|first_half_annual_rate
+headline_cpi_annual_pct,number,Headline CPI annual percent change,Null if unavailable
+cpi_month_on_month_pct,number,CPI month-on-month percent change,Null if unavailable
+food_cpi_annual_pct,number,Food CPI annual percent change,Null if unavailable
+housing_cpi_annual_pct,number,Housing CPI annual percent change,Null if unavailable
+core_cpi_annual_pct,number,Core CPI annual percent change,Null if unavailable
+prior_period_headline_pct,number,Prior comparable headline annual rate,Null if unavailable
+usd_exchange_rate_local_per_usd,number,Local currency units per USD,Null if unavailable
+market_layer,string,Market-layer availability or status,missing|fx_only|other documented status
+narrative_layer,string,Bilingual narrative-layer audit status,pending_audit or documented successor status
+composite_status,string,Composite publication status,withheld|withheld_structural_break|withheld_regional_series
+source_institution,string,Primary official statistical institution,Required
+source_url,string,Primary-source URL,Required
+retrieved_date,date,Date source was retrieved,YYYY-MM-DD
+comparability_note,string,Human-readable caveat or comparability decision,Required for non-standard rows
