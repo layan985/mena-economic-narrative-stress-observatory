@@ -1,0 +1,21 @@
+name: Validate release
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate v0.2 release
+        run: python scripts/validate_release.py data/raw/mena-observatory-pilot-2026-08-07.csv
+      - name: Run tests
+        run: python -m unittest discover -s tests -v
