@@ -1,5 +1,7 @@
 # MENA Economic Narrative and Market Stress Observatory
 
+> **Research portfolio:** [layanaloreidi.online](https://layanaloreidi.online)
+
 [![Validate release](https://github.com/layan985/mena-economic-narrative-stress-observatory/actions/workflows/validate.yml/badge.svg)](https://github.com/layan985/mena-economic-narrative-stress-observatory/actions/workflows/validate.yml)
 
 **Research lead:** **Layan Oraidi** (also appearing in some award and academic records as **Layan Aloreidi**) · Founder & Research Director, MENA Open Data & Evidence Lab · ORCID: https://orcid.org/0009-0005-0202-2582
