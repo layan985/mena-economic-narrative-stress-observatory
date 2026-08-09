@@ -23,6 +23,8 @@ The pilot answers only the first, narrower measurement question: can official pr
 
 Release date: **7 August 2026**. Status: **founder-produced pilot; not yet independently audited**.
 
+See [`VALIDATION_STATUS.md`](VALIDATION_STATUS.md) for the current evidence ledger and claim boundary.
+
 ## Canonical files
 
 | File | Purpose |
@@ -31,6 +33,10 @@ Release date: **7 August 2026**. Status: **founder-produced pilot; not yet indep
 | [`data_dictionary.csv`](data_dictionary.csv) | Machine-readable public-field definitions |
 | [`METHODOLOGY.md`](METHODOLOGY.md) | Measurement, comparability, structural-break, and publication rules |
 | [`PROVENANCE.md`](PROVENANCE.md) | Source-trace and verification requirements |
+| [`REPRODUCE.md`](REPRODUCE.md) | Clean-room instructions for an independent rerun |
+| [`audits/INDEPENDENT_REPRODUCTION_TEMPLATE.md`](audits/INDEPENDENT_REPRODUCTION_TEMPLATE.md) | Third-party reproduction record |
+| [`audits/PROVENANCE_REVIEW_TEMPLATE.md`](audits/PROVENANCE_REVIEW_TEMPLATE.md) | External record-level provenance review |
+| [`VALIDATION_STATUS.md`](VALIDATION_STATUS.md) | Public validation/evidence ledger |
 | [`GOVERNANCE.md`](GOVERNANCE.md) | Roles, authority, credit, and separation of duties |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | Public contribution protocol and Founding Researcher Challenge |
 | [`CORRECTIONS.md`](CORRECTIONS.md) | Correction, withdrawal, and retraction policy |
@@ -44,7 +50,7 @@ Null fields mean **not observed, unavailable, or outside the current release sco
 
 ## Reproduce the release checks
 
-The v0.2 validator uses only the Python standard library.
+For a clean-room rerun, follow [`REPRODUCE.md`](REPRODUCE.md). The core v0.2 validator uses only the Python standard library.
 
 ```bash
 python scripts/validate_release.py data/raw/mena-observatory-pilot-2026-08-07.csv
@@ -52,6 +58,8 @@ python -m unittest discover -s tests -v
 ```
 
 The validator checks required schema fields, unique record IDs, source URLs, allowed composite-status values, numeric parseability, the 8-row release contract, and the 24 populated numeric observations.
+
+A project-run CI success is **not** treated as independent reproduction. That claim requires a completed third-party audit record against an exact commit or immutable release.
 
 ## Methodological boundary
 
@@ -65,18 +73,20 @@ A composite is withheld until required coverage, provenance, licensing, reproduc
 
 > **Missing components are never converted into reassuring zeros.**
 
+The immediate credibility sequence is:
+
+**independent rerun → external provenance review → immutable v0.2 release + published Zenodo record → larger v0.3 dataset.**
+
 ## Public roadmap
 
-The research roadmap is now tracked as GitHub issues:
+The research roadmap is tracked as GitHub issues. External-validation milestones include:
 
-- [MODE-001 — Assess and appoint four founding workers](https://github.com/layan985/mena-economic-narrative-stress-observatory/issues/1)
-- [MODE-002 — Freeze country-entry and source-eligibility rules](https://github.com/layan985/mena-economic-narrative-stress-observatory/issues/2)
-- [MODE-003 — Publish Arabic-English annotation guide](https://github.com/layan985/mena-economic-narrative-stress-observatory/issues/3)
-- [MODE-004 — Audit licensing and redistribution source by source](https://github.com/layan985/mena-economic-narrative-stress-observatory/issues/4)
-- [MODE-005 — Publish pilot schema and first official-data cut](https://github.com/layan985/mena-economic-narrative-stress-observatory/issues/5)
-- [MODE-006 — Secure one substantive partner](https://github.com/layan985/mena-economic-narrative-stress-observatory/issues/6)
 - [MODE-007 — Independent rerun of package v0.2](https://github.com/layan985/mena-economic-narrative-stress-observatory/issues/7)
-- [MODE-008 — Publish first workshop artifact](https://github.com/layan985/mena-economic-narrative-stress-observatory/issues/8)
+- [MODE-009 — External provenance review of v0.2](https://github.com/layan985/mena-economic-narrative-stress-observatory/issues/12)
+- [MODE-010 — Freeze audited v0.2 release and publish Zenodo record](https://github.com/layan985/mena-economic-narrative-stress-observatory/issues/14)
+- [MODE-011 — Build Observatory v0.3 expanded dataset](https://github.com/layan985/mena-economic-narrative-stress-observatory/issues/16)
+
+Other institutional, licensing, workshop, and partner milestones remain tracked in the repository issue list.
 
 ## Citation
 
