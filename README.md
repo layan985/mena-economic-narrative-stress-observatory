@@ -2,6 +2,8 @@
 
 [![Validate release](https://github.com/layan985/mena-economic-narrative-stress-observatory/actions/workflows/validate.yml/badge.svg)](https://github.com/layan985/mena-economic-narrative-stress-observatory/actions/workflows/validate.yml)
 
+**Research lead:** **Layan Oraidi** (also appearing in some award and academic records as **Layan Aloreidi**) · Founder & Research Director, MENA Open Data & Evidence Lab · ORCID: https://orcid.org/0009-0005-0202-2582
+
 > **Reserved Zenodo DOI:** `10.5281/zenodo.21845069` — **not yet claimed as published**. The DOI will be promoted to the canonical citation only after the Zenodo record is verifiably published.
 
 The **MENA Economic Narrative and Market Stress Observatory: Pilot Release v0.2** is an auditable, source-traced pilot dataset of official consumer-price observations for selected MENA economies and Palestinian geographies. It is maintained by **Layan Oraidi** and the **MENA Open Data & Evidence Lab**.
@@ -45,6 +47,7 @@ See [`VALIDATION_STATUS.md`](VALIDATION_STATUS.md) for the current evidence ledg
 | [`scripts/validate_release.py`](scripts/validate_release.py) | Release validator |
 | [`tests/test_release.py`](tests/test_release.py) | Automated release test |
 | [`.github/workflows/validate.yml`](.github/workflows/validate.yml) | Continuous validation workflow |
+| [`AUTHOR.md`](AUTHOR.md) | Canonical researcher identity and Oraidi / Aloreidi name bridge |
 
 Null fields mean **not observed, unavailable, or outside the current release scope**. They never mean zero.
 
@@ -104,5 +107,6 @@ Contributor credit begins with accepted, auditable public work—not honorary ti
 
 - **Repository:** https://github.com/layan985/mena-economic-narrative-stress-observatory
 - **Lab:** https://mena-open-evidence-lab.r8ms5bfzb6.chatgpt.site/
+- **Researcher:** [`AUTHOR.md`](AUTHOR.md)
 
 Founded and directed by **Layan Oraidi**.
