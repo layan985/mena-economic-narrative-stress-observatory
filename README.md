@@ -2,11 +2,13 @@
 
 Official inflation releases can look comparable while referring to different periods, geographies, and populations. Jordan's pilot observation is a first-half period average; several other rows are monthly annual rates; and Gaza's annual price decline follows an exceptional wartime price level. Putting those numbers into one ranking would create a precise-looking but misleading result.
 
-This repository contains the small dataset I used to work through that problem. It does not contain a regional stress index.
+This repository contains the dataset I used to work through that measurement problem. It does not claim to contain a regional stress index.
 
 ## Current status
 
-The 7 August 2026 pilot contains:
+**v0.2 is a completed founder-produced pilot research object.** Its release boundary is frozen in [PILOT_RELEASE.md](PILOT_RELEASE.md) and on the `release/v0.2-pilot` branch. External reproduction, provenance review, DOI archiving, and a larger v0.3 dataset are separate maturity gates rather than unfinished components of the v0.2 pilot itself.
+
+The completed pilot contains:
 
 - 8 release/geography rows;
 - 24 populated numeric observations;
@@ -24,7 +26,7 @@ Three issues appeared immediately:
 2. Palestine, the West Bank, Jerusalem J1, and Gaza are published as distinct series and should not be collapsed without an explicit aggregation rule.
 3. Gaza's large annual decline reflects wartime base effects and cannot be read mechanically as falling hardship.
 
-For now, the honest output is the source table plus those warnings. [notes/2026-08-10-why-i-dropped-the-composite.md](notes/2026-08-10-why-i-dropped-the-composite.md) records the decision.
+The pilot's result is therefore the source table plus those warnings rather than a knowingly misleading ranking. [notes/2026-08-10-why-i-dropped-the-composite.md](notes/2026-08-10-why-i-dropped-the-composite.md) records the decision.
 
 ## Files
 
@@ -34,6 +36,7 @@ For now, the honest output is the source table plus those warnings. [notes/2026-
 - [PROVENANCE.md](PROVENANCE.md): how source documents are recorded.
 - [RIGHTS_LEDGER.md](RIGHTS_LEDGER.md): source-specific reuse notes.
 - [RESULTS.md](RESULTS.md): what can and cannot be concluded from the pilot.
+- [PILOT_RELEASE.md](PILOT_RELEASE.md): exact v0.2 completion boundary.
 
 Blank numeric fields mean not observed, unavailable, or outside the source's scope. They do not mean zero.
 
@@ -48,8 +51,8 @@ python -m unittest discover -s tests -v
 
 The tests check the schema, unique record IDs, numeric parsing, source URLs, the eight-row count, and the 24 populated numeric observations. They do not establish that the rows are economically comparable or independently verified.
 
-## What comes next
+## Next research version
 
-Before adding a score, I need to choose a narrower construct, collect consistent time periods, write conflict-specific interpretation rules, and have another person check a sample against the source documents. If those steps fail, the project will remain a documented price-release table rather than an index.
+A future v0.3 should choose a narrower construct, collect consistent time periods, encode conflict-specific interpretation rules, materially expand source coverage, and add non-founder checking. Those are expansion goals, not conditions for calling the existing v0.2 pilot complete.
 
 Corrections should identify the affected `record_id` and link the primary source. Existing releases are not silently overwritten.
