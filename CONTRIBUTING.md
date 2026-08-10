@@ -64,6 +64,4 @@ Minor typo fixes, passive attendance, private feedback, website listing, or unre
 
 ## Credit and role attribution
 
-Accepted substantive work is credited publicly through repository history, audit records, release acknowledgements, or versioned artifacts. Releases should distinguish actual roles such as dataset lead, data contributor, method contributor, methodological reviewer, reproducibility reviewer, and release reviewer.
-
-The Lab's institutional-independence milestones are tracked in `INSTITUTIONAL_INDEPENDENCE.md`.
+Accepted substantive work is credited through repository history and release acknowledgements. Releases should describe what each contributor actually did.

@@ -57,10 +57,6 @@ Contributor credit is tied to accepted, attributable public work such as merged 
 
 Release records should distinguish roles such as project lead, dataset lead, data contributor, methodological reviewer, reproducibility reviewer, and release reviewer.
 
-## Institutional independence standard
-
-The Lab should be able to demonstrate that credible work continues beyond the founder through external contributors, reviewers, users, partners, and non-founder-led outputs. Progress is tracked in `INSTITUTIONAL_INDEPENDENCE.md`.
-
 ## Conflicts and corrections
 
 Potential conflicts of interest should be disclosed when they could reasonably affect source selection, interpretation, review, or verification. Corrections follow `CORRECTIONS.md`.

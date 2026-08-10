@@ -1,64 +1,30 @@
 # Methodology
 
-## Scope
+## What v0.2 contains
 
-Release v0.2 is an official-data pilot for the MENA Economic Narrative and Market Stress Observatory. It tests whether heterogeneous official price releases can be captured with enough provenance and comparability metadata to support later multi-layer research.
+The pilot records official price releases. One row represents a published geography and reference period. Subnational Palestinian geographies remain separate when the source publishes them separately.
 
-It is **not** a completed regional stress index.
-
-## Unit of observation
-
-The public wide file uses one row per published geography and reference period. Subnational Palestinian geographies are retained separately when the source publishes them separately.
-
-## Source hierarchy
-
-1. Primary national statistical offices or equivalent official institutions.
-2. Direct official release pages or official PDFs.
-3. No secondary aggregator substitutes for a primary source when the primary release is available.
-
-## Missingness
-
-Blank numeric fields are null values. They mean that the measure was not observed, was not available in the source, or is outside the scope of the release. Nulls must never be recoded as zero merely to make a composite computable.
+Primary statistical offices and their direct release pages or PDFs are used when available. Blank numeric fields remain null; they are not replaced with zero.
 
 ## Comparability
 
-Rows are not treated as exchangeable merely because they contain percentages.
+Rows are not treated as interchangeable merely because they contain percentages.
 
-- Monthly annual rates may be compared only when the underlying concepts are materially aligned.
-- Jordan's H1 period-average figure is preserved but excluded from naive monthly ranking.
-- Regional Palestinian series remain distinct from the overall Palestine series.
-- Methodological changes must be documented at the row or source level.
+- Monthly annual rates are compared only when the underlying concept and reference period align.
+- Jordan's H1 period-average figure is preserved but excluded from a naive monthly ranking.
+- Palestine's regional series remain separate from the overall series.
+- A change in source method or geography must be recorded with the row.
 
-## Conflict-related structural breaks
+## Conflict-related breaks
 
-Conflict can make directionally intuitive interpretation invalid. Gaza's large annual price decline follows exceptional wartime price levels and base effects. It must not be interpreted mechanically as lower economic stress or improved welfare.
+Gaza's annual price decline follows exceptional wartime price levels and base effects. It is marked as a structural break and is not interpreted as lower stress or improved welfare.
 
-Rows affected by such breaks are explicitly flagged and composite publication is withheld.
+## Why there is no composite
 
-## Four-layer target architecture
+The pilot does not yet have consistent country coverage, matching periods, a defensible rule for conflict breaks, or an independent source review. A composite would conceal those gaps. `composite_status` therefore remains withheld.
 
-The Observatory ultimately targets four evidence layers:
+If a later version introduces an index, it must publish the construct being measured, eligibility rules, missing-data treatment, transformations, and sensitivity to excluding incomparable rows before reporting a headline ranking.
 
-1. **Macro:** official price, labor, output, and related macro releases.
-2. **Markets:** exchange rates, yields, equities, commodities, volatility, or other documented market-pressure variables where licensing permits.
-3. **Policy:** timestamped fiscal, monetary, regulatory, subsidy, tax, capital-control, and related policy events.
-4. **Narrative:** auditable Arabic-English economic narrative evidence under a published annotation protocol.
+## Corrections
 
-## Composite publication gate
-
-A composite score may be published only after all of the following are satisfied:
-
-- country/source eligibility rules are frozen for the release;
-- required layers meet documented minimum coverage;
-- provenance is complete enough for independent checking;
-- licensing and redistribution are documented;
-- transformations are reproducible from versioned code;
-- structural-break and conflict rules have been applied;
-- an analyst other than the producing analyst reruns the package or independently verifies the relevant module;
-- failed, missing, or unaudited components are not silently replaced with zeros.
-
-Until these conditions are met, `composite_status` remains withheld.
-
-## Versioning
-
-Published releases are immutable snapshots. Corrections produce a new patch or minor version with a changelog entry rather than silent replacement.
+A released file is a snapshot. Corrections produce a new version and changelog entry rather than silently replacing the old file.

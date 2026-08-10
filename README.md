@@ -1,114 +1,55 @@
-# MENA Economic Narrative and Market Stress Observatory
+# MENA economic narrative and market stress: price-data pilot
 
-> **Research portfolio:** [layanaloreidi.online](https://layanaloreidi.online)
+Official inflation releases can look comparable while referring to different periods, geographies, and populations. Jordan's pilot observation is a first-half period average; several other rows are monthly annual rates; and Gaza's annual price decline follows an exceptional wartime price level. Putting those numbers into one ranking would create a precise-looking but misleading result.
 
-[![Validate release](https://github.com/layan985/mena-economic-narrative-stress-observatory/actions/workflows/validate.yml/badge.svg)](https://github.com/layan985/mena-economic-narrative-stress-observatory/actions/workflows/validate.yml)
+This repository contains the small dataset I used to work through that problem. It does not contain a regional stress index.
 
-**Research lead:** **Layan Oraidi** (also appearing in some award and academic records as **Layan Aloreidi**) · Founder & Research Director, MENA Open Data & Evidence Lab · ORCID: https://orcid.org/0009-0005-0202-2582
+## Current status
 
-> **Reserved Zenodo DOI:** `10.5281/zenodo.21845069` — **not yet claimed as published**. The DOI will be promoted to the canonical citation only after the Zenodo record is verifiably published.
+The 7 August 2026 pilot contains:
 
-The **MENA Economic Narrative and Market Stress Observatory: Pilot Release v0.2** is an auditable, source-traced pilot dataset of official consumer-price observations for selected MENA economies and Palestinian geographies. It is maintained by **Layan Oraidi** and the **MENA Open Data & Evidence Lab**.
+- 8 release/geography rows;
+- 24 populated numeric observations;
+- sources from 5 official statistical institutions;
+- source URLs, retrieval dates, period descriptions, and comparability notes;
+- no composite score.
 
-## Research question
+The pilot has automated checks, but no person outside the project has reproduced or reviewed it. There is no published Zenodo record and no documented outside use. [VALIDATION_STATUS.md](VALIDATION_STATUS.md) keeps that status explicit.
 
-How can official macroeconomic releases, market conditions, policy events, and Arabic/English economic narratives be assembled into comparable country-period evidence about economic stress without hiding missingness, period mismatch, or conflict-related structural breaks?
+## Why I did not calculate a stress score
 
-The pilot answers only the first, narrower measurement question: can official price observations be released with enough row-level provenance and comparability information to support independent checking? It deliberately does **not** publish a composite stress score.
+Three issues appeared immediately:
 
-## Release v0.2
+1. Jordan's first-half period average is not the same object as a monthly year-on-year rate.
+2. Palestine, the West Bank, Jerusalem J1, and Gaza are published as distinct series and should not be collapsed without an explicit aggregation rule.
+3. Gaza's large annual decline reflects wartime base effects and cannot be read mechanically as falling hardship.
 
-- **8** release/geography rows
-- **24** populated numeric observations
-- **5** official statistical institutions
-- direct primary-source URLs and retrieval dates
-- explicit period, missingness, comparability, and structural-break notes
-- **0** composite scores
+For now, the honest output is the source table plus those warnings. [notes/2026-08-10-why-i-dropped-the-composite.md](notes/2026-08-10-why-i-dropped-the-composite.md) records the decision.
 
-Release date: **7 August 2026**. Status: **founder-produced pilot; not yet independently audited**.
+## Files
 
-See [`VALIDATION_STATUS.md`](VALIDATION_STATUS.md) for the current evidence ledger and claim boundary.
+- [data/raw/mena-observatory-pilot-2026-08-07.csv](data/raw/mena-observatory-pilot-2026-08-07.csv): the eight-row transcription.
+- [data_dictionary.csv](data_dictionary.csv): field definitions.
+- [METHODOLOGY.md](METHODOLOGY.md): source, missingness, and comparability rules.
+- [PROVENANCE.md](PROVENANCE.md): how source documents are recorded.
+- [RIGHTS_LEDGER.md](RIGHTS_LEDGER.md): source-specific reuse notes.
+- [RESULTS.md](RESULTS.md): what can and cannot be concluded from the pilot.
 
-## Canonical files
+Blank numeric fields mean not observed, unavailable, or outside the source's scope. They do not mean zero.
 
-| File | Purpose |
-|---|---|
-| [`data/raw/mena-observatory-pilot-2026-08-07.csv`](data/raw/mena-observatory-pilot-2026-08-07.csv) | Immutable v0.2 pilot transcription |
-| [`data_dictionary.csv`](data_dictionary.csv) | Machine-readable public-field definitions |
-| [`METHODOLOGY.md`](METHODOLOGY.md) | Measurement, comparability, structural-break, and publication rules |
-| [`PROVENANCE.md`](PROVENANCE.md) | Source-trace and verification requirements |
-| [`REPRODUCE.md`](REPRODUCE.md) | Clean-room instructions for an independent rerun |
-| [`audits/INDEPENDENT_REPRODUCTION_TEMPLATE.md`](audits/INDEPENDENT_REPRODUCTION_TEMPLATE.md) | Third-party reproduction record |
-| [`audits/PROVENANCE_REVIEW_TEMPLATE.md`](audits/PROVENANCE_REVIEW_TEMPLATE.md) | External record-level provenance review |
-| [`VALIDATION_STATUS.md`](VALIDATION_STATUS.md) | Public validation/evidence ledger |
-| [`GOVERNANCE.md`](GOVERNANCE.md) | Roles, authority, credit, and separation of duties |
-| [`CONTRIBUTING.md`](CONTRIBUTING.md) | Public contribution protocol and Founding Researcher Challenge |
-| [`CORRECTIONS.md`](CORRECTIONS.md) | Correction, withdrawal, and retraction policy |
-| [`CHANGELOG.md`](CHANGELOG.md) | Version history |
-| [`CITATION.cff`](CITATION.cff) | Machine-readable citation metadata |
-| [`scripts/validate_release.py`](scripts/validate_release.py) | Release validator |
-| [`tests/test_release.py`](tests/test_release.py) | Automated release test |
-| [`.github/workflows/validate.yml`](.github/workflows/validate.yml) | Continuous validation workflow |
-| [`AUTHOR.md`](AUTHOR.md) | Canonical researcher identity and Oraidi / Aloreidi name bridge |
+## Run the checks
 
-Null fields mean **not observed, unavailable, or outside the current release scope**. They never mean zero.
-
-## Reproduce the release checks
-
-For a clean-room rerun, follow [`REPRODUCE.md`](REPRODUCE.md). The core v0.2 validator uses only the Python standard library.
+The validator uses only the Python standard library.
 
 ```bash
 python scripts/validate_release.py data/raw/mena-observatory-pilot-2026-08-07.csv
 python -m unittest discover -s tests -v
 ```
 
-The validator checks required schema fields, unique record IDs, source URLs, allowed composite-status values, numeric parseability, the 8-row release contract, and the 24 populated numeric observations.
+The tests check the schema, unique record IDs, numeric parsing, source URLs, the eight-row count, and the 24 populated numeric observations. They do not establish that the rows are economically comparable or independently verified.
 
-A project-run CI success is **not** treated as independent reproduction. That claim requires a completed third-party audit record against an exact commit or immutable release.
+## What comes next
 
-## Methodological boundary
+Before adding a score, I need to choose a narrower construct, collect consistent time periods, write conflict-specific interpretation rules, and have another person check a sample against the source documents. If those steps fail, the project will remain a documented price-release table rather than an index.
 
-Jordan's figure is a first-half period average and must not be naively ranked beside monthly annual rates. Palestine is retained as separately published overall, West Bank, Jerusalem J1, and Gaza series. Gaza's annual decline follows unprecedented wartime price levels and is flagged as a structural break, not interpreted as low stress or improved welfare.
-
-## Publication gate
-
-The Observatory ultimately targets four layers: **macro, markets, policy, and bilingual narrative evidence**.
-
-A composite is withheld until required coverage, provenance, licensing, reproducibility, comparability, structural-break treatment, and independent verification gates are satisfied.
-
-> **Missing components are never converted into reassuring zeros.**
-
-The immediate credibility sequence is:
-
-**independent rerun → external provenance review → immutable v0.2 release + published Zenodo record → larger v0.3 dataset.**
-
-## Public roadmap
-
-The research roadmap is tracked as GitHub issues. External-validation milestones include:
-
-- [MODE-007 — Independent rerun of package v0.2](https://github.com/layan985/mena-economic-narrative-stress-observatory/issues/7)
-- [MODE-009 — External provenance review of v0.2](https://github.com/layan985/mena-economic-narrative-stress-observatory/issues/12)
-- [MODE-010 — Freeze audited v0.2 release and publish Zenodo record](https://github.com/layan985/mena-economic-narrative-stress-observatory/issues/14)
-- [MODE-011 — Build Observatory v0.3 expanded dataset](https://github.com/layan985/mena-economic-narrative-stress-observatory/issues/16)
-
-Other institutional, licensing, workshop, and partner milestones remain tracked in the repository issue list.
-
-## Citation
-
-Until the Zenodo deposit is published, cite the version explicitly:
-
-> Oraidi, L. (2026). *MENA Economic Narrative and Market Stress Observatory: Pilot Release v0.2*. MENA Open Data & Evidence Lab. Version 0.2.
-
-## Corrections and contributions
-
-Suspected errors should be opened as GitHub issues with the affected record ID and primary-source evidence. Published releases are never overwritten silently. Material corrections require a new version and documented review.
-
-Contributor credit begins with accepted, auditable public work—not honorary titles.
-
-## Project links
-
-- **Repository:** https://github.com/layan985/mena-economic-narrative-stress-observatory
-- **Lab:** https://mena-open-evidence-lab.r8ms5bfzb6.chatgpt.site/
-- **Researcher:** [`AUTHOR.md`](AUTHOR.md)
-
-Founded and directed by **Layan Oraidi**.
+Corrections should identify the affected `record_id` and link the primary source. Existing releases are not silently overwritten.
