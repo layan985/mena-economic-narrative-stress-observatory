@@ -1,0 +1,29 @@
+name: release-v0.2
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/release-v0.2.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create Observatory pilot release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view v0.2.0 >/dev/null 2>&1; then
+            echo 'v0.2.0 already exists; nothing to do.'
+            exit 0
+          fi
+          gh release create v0.2.0 \
+            --target "$GITHUB_SHA" \
+            --title 'v0.2 — completed founder-produced price-data pilot' \
+            --notes 'Frozen v0.2 founder-produced pilot: 8 release/geography rows, 24 populated numeric observations, 5 official statistical institutions, source URLs/retrieval dates, methodology, provenance, rights notes, corrections/versioning rules, and automated validation. This is not a regional stress index. It has not yet been independently reproduced or provenance-reviewed, and this release does not claim DOI archiving or external validation.'
