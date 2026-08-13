@@ -4,6 +4,22 @@ Official inflation releases can look comparable while referring to different per
 
 This repository contains a versioned official-price-release panel built around that measurement problem. It does not claim to contain a regional stress index.
 
+
+## Live evidence interface
+
+Explore the release candidate in the [MENA Price Evidence Observatory](https://mena-price-evidence-observatory.r8ms5bfzb6.chatgpt.site).
+
+The interface provides:
+
+- an interactive within-series annual and month-on-month CPI workbench;
+- field-coverage diagnostics across all eight published geography series;
+- direct access to all 30 official institution-month source releases;
+- a searchable explorer for all 48 release-candidate records;
+- CSV export plus read-only JSON observation and source-manifest endpoints; and
+- the same explicit independent-audit, source-archive, DOI, and composite-withholding gates recorded here.
+
+The interface is a publication and exploration layer for `v0.3.0-rc1`. It does not upgrade the release candidate to independently reproduced, externally validated, or DOI-published status.
+
 ## Current status
 
 **v0.3.0-rc1 is a founder-produced release candidate.** Data transcription and automated validation are complete for its fixed January–June 2026 scope. Independent source audit, immutable source archiving/hashing, and DOI publication are still pending. It must not be described as independently reproduced or as a stable DOI release.
