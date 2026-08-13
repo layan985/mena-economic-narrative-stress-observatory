@@ -1,0 +1,33 @@
+{
+  "status": "v0.3.0-rc1; founder-produced; independent audit pending",
+  "rows": 48,
+  "primary_institution_month_rows": 30,
+  "supplemental_palestinian_regional_rows": 18,
+  "reference_periods": [
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06"
+  ],
+  "official_source_institutions": [
+    "Department of Statistics (Jordan)",
+    "General Authority for Statistics (Saudi Arabia)",
+    "Haut-Commissariat au Plan (Morocco)",
+    "National Institute of Statistics (Tunisia)",
+    "Palestinian Central Bureau of Statistics"
+  ],
+  "unique_source_urls": 30,
+  "headline_annual_complete": 48,
+  "month_on_month_complete": 48,
+  "populated_numeric_observations": 195,
+  "composite_status_counts": {
+    "withheld": 24,
+    "withheld_regional_series": 12,
+    "withheld_structural_break": 12
+  },
+  "composite_published": false,
+  "independently_reproduced": false,
+  "doi_published": false
+}
