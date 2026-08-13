@@ -1,12 +1,12 @@
 cff-version: 1.2.0
-title: "MENA Economic Narrative and Market Stress Observatory: Pilot Release v0.2"
-message: "If you use this dataset, please cite it using the metadata below."
+title: "MENA Economic Narrative and Market Stress Observatory: Official Price Release Panel"
+message: "v0.3.0-rc1 is a release candidate; cite the exact commit until a stable DOI release is published."
 type: dataset
 authors:
   - family-names: Oraidi
     given-names: Layan
     orcid: "https://orcid.org/0009-0005-0202-2582"
-version: "0.2"
-date-released: "2026-08-07"
+version: "0.3.0-rc1"
+date-released: "2026-08-13"
 repository-code: "https://github.com/layan985/mena-economic-narrative-stress-observatory"
 url: "https://mena-open-evidence-lab.r8ms5bfzb6.chatgpt.site/"

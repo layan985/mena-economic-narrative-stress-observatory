@@ -1,4 +1,4 @@
-# Reproduce Observatory v0.2
+# Reproduce Observatory v0.2 and v0.3.0-rc1
 
 This guide is designed for an independent verifier who did not produce the pilot release. The goal is to make the reproduction procedure explicit enough that the verifier should not need private instructions from the producing analyst.
 
@@ -33,9 +33,11 @@ python --version
 
 ```bash
 python scripts/validate_release.py data/raw/mena-observatory-pilot-2026-08-07.csv
+python scripts/validate_v03.py data/raw/mena-observatory-v0.3.0-rc1.csv
+python scripts/build_v03_release.py
 ```
 
-The validator checks the release contract, including required schema fields, unique record IDs, source URLs, allowed composite-status values, numeric parseability, the expected 8 release/geography rows, and 24 populated numeric observations.
+The v0.2 validator checks its frozen eight-row contract. The v0.3 validator checks 48 exact geography-month pairs, the 30/18 primary-regional split, five official institutions, required headline fields, source URLs, structural-break statuses, and numeric parseability. The build command regenerates the focused 30-row panel, summary JSON, and 30-source provenance manifest.
 
 ## 4. Run the automated tests
 
@@ -47,7 +49,7 @@ Record the full result as PASS or FAIL. Do not edit the dataset to make a failin
 
 ## 5. Independently spot-check official sources
 
-Select at least three records spanning more than one source institution where possible. For each sampled record:
+For v0.3, select at least five records spanning all five source institutions and at least three reference months. Include one Palestine overall or Gaza structural-break row and its matching West Bank or Jerusalem J1 row. For each sampled record:
 
 1. Open the primary official source recorded by the project.
 2. Confirm the institution and release are identifiable.
@@ -55,7 +57,7 @@ Select at least three records spanning more than one source institution where po
 4. Compare the official value with the value transcribed in the Observatory.
 5. Record any unit, period, geography, or comparability discrepancy.
 
-Use `audits/INDEPENDENT_REPRODUCTION_TEMPLATE.md` for the result.
+Use `audits/INDEPENDENT_REPRODUCTION_V0_3_TEMPLATE.md` for v0.3 or the existing v0.2 template for the frozen pilot.
 
 ## 6. Report discrepancies publicly
 
