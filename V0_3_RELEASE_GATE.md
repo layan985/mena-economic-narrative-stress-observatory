@@ -5,6 +5,14 @@
 **v0.3.0-rc1 — founder-produced release candidate.**  
 Data transcription and automated validation are complete for the fixed scope. Independent source audit, source-byte archiving/hashing, and DOI publication are pending.
 
+Operational freeze checklist: [`V0_3_FREEZE_CHECKLIST.md`](V0_3_FREEZE_CHECKLIST.md)  
+External reviewer packet: [`audits/V0_3_REVIEWER_EXECUTION_PACKET.md`](audits/V0_3_REVIEWER_EXECUTION_PACKET.md)  
+Source-audit worksheet: [`audits/v0.3-source-audit.csv`](audits/v0.3-source-audit.csv)  
+External-review record: [`audits/V0_3_EXTERNAL_REVIEW_RECORD.md`](audits/V0_3_EXTERNAL_REVIEW_RECORD.md)  
+Independent reproducer packet: [`audits/V0_3_REPRODUCER_EXECUTION_PACKET.md`](audits/V0_3_REPRODUCER_EXECUTION_PACKET.md)  
+Independent-reproduction record: [`audits/V0_3_INDEPENDENT_REPRODUCTION_RECORD.md`](audits/V0_3_INDEPENDENT_REPRODUCTION_RECORD.md)  
+Machine-checkable stable gate: [`scripts/check_v03_stable_gate.py`](scripts/check_v03_stable_gate.py)
+
 ## Fixed research object
 
 - January–June 2026 only
@@ -48,6 +56,16 @@ No new geography, month, or evidence layer enters v0.3 before the existing objec
 - [ ] A stable GitHub release freezes the reviewed commit.
 - [ ] A DOI archive resolves to that exact release.
 - [ ] The public site links the stable data, methodology, audit, and DOI.
+
+## Machine-checkable promotion test
+
+Run:
+
+```bash
+python scripts/check_v03_stable_gate.py
+```
+
+The command exits non-zero while stable-release requirements remain open. A failing stable-gate command is therefore an accurate release-blocking result, not evidence that the release-candidate build itself is invalid.
 
 ## Permitted labels
 
